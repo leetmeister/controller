@@ -69,6 +69,7 @@ compile_commands.json
 # Python Generated #
 ####################
 __pycache__
+*Pipfile*
 
 # Misc #
 ########
