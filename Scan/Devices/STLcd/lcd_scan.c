@@ -468,6 +468,7 @@ inline void LCD_setup()
 static inline void check_caps_lock()
 {
 #if defined(_kinetis_)
+	const uint16_t lock_rgb[3] = { STLcdCapsLock_define };
 	static uint16_t hold_color[3];
 	static uint8_t was_capslock = 0;
 
@@ -493,9 +494,9 @@ static inline void check_caps_lock()
 
 	if ( is_capslock )
 	{
-		FTM0_C0V = 0x8303;
-		FTM0_C1V = 0x1394;
-		FTM0_C2V = 0xb9f9;
+		FTM0_C0V = lock_rgb[0];
+		FTM0_C1V = lock_rgb[1];
+		FTM0_C2V = lock_rgb[2];
 	}
 #elif defined(_sam_)
 	//SAM TODO
